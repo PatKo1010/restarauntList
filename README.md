@@ -10,8 +10,25 @@
 ## 安裝與執行步驟
 
 1. 打開電腦終端機輸入下面指令，將此專案clone至本機
+```
+git clone https://github.com/PatKo1010/restarauntList.git
+```
+2. 進入該專案資料夾
+```
+cd restaurant_list
+```
+3.安裝相關套件
+```
+npm install
+```
+4. 執行程式
+```
+npm run dev 
+```
 
-```
-this is 
-```
+## 環境建置需求
+1. Visual Studio Code - development environment
+2. Node.js & npm - JavaScript runtime environment
+3. Express.js - web application framework
+4. Express-Handlebars - template engine
 
