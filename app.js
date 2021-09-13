@@ -32,7 +32,6 @@ app.get ('/search', (req,res) => {
   res.render ('index', {restaurants: searchedRestaurants, keyword: keyword})
 })
 
-
 app.listen (port, () => {
   console.log (`Express is running on http://locolhost:${port}`)
 })
