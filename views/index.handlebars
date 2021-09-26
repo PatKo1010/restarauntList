@@ -27,8 +27,7 @@
 
         {{#if restaurants}}
           {{#each restaurants}}
-          <a href="/restaurants/{{this.id}}" class="text-secondary">
-            <div class="card mb-3">
+            <div class="card mb-3 text-secondary">
               <img class="card-img-top" src="{{this.image}}"
                 alt="{{this.name}}">
               <div class="card-body p-3">
@@ -42,16 +41,25 @@
                   <i class="fas fa-star fa-xs"></i>
                 </span>
               </div>
+                <a href="/restaurants/{{this._id}}/edits">edit</a>
+                <a href="/restaurants/{{this._id}}">detail</a>
+                
             </div>
-          </a>
           {{/each}}
+
         
         {{else}}
           <h1>No results found </h1>
         {{/if}}
+
+
+
         </div>
       </div>
     </div>
+      <a class="btn btn-primary" href="http://localhost:3000/restaurants/new">
+      <i class="fas fa-plus">新增</i>
+      </a>
   </div>
 
 
