@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const storeList = require('/Users/kohsi-yang/ac_exercising/restaurant_list/models/restaurant.js')
+
 const db = mongoose.connection
 const restaurants = require('/Users/kohsi-yang/ac_exercising/restaurant_list/restaurant.json')
 

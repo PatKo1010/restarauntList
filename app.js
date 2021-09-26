@@ -34,9 +34,14 @@ app.get('/', (req, res) => {
            .catch (error => console.log(error))
 })
 
-
 app.get('/restaurants/new', (req, res) => {
   res.render ('new')
+})
+
+app.post ('/restaurants/new', (req,res) => {
+ return  storeList.create (req.body)
+                  .then (()=> {res.redirect('/')})
+                  .catch (error => console.log (error))
 })
 
 app.get ('/restaurants/:id', (req,res) => {
@@ -46,7 +51,7 @@ app.get ('/restaurants/:id', (req,res) => {
            .then ( (store) => {
              res.render ('show', {restaurant:store})
           })
-          .catch(error => console.log(error))
+           .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:id/edits', (req,res) => {
@@ -84,7 +89,6 @@ app.get ('/search', (req,res) => {
   })
   res.render ('index', {restaurants: searchedRestaurants, keyword: keyword})
 })
-
 
 
 app.listen (port, () => {
