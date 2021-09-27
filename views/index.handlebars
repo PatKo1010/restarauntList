@@ -16,15 +16,21 @@
       </div>
     </div>
   </div>
-  
 
   
-  <!-- restaurant list -->
+
   <div class="container mt-5">
+
+
+
     <div class="row">
       <div class="col-md-10 col-12 mx-auto">
-        <div class="card-columns">
 
+    <a class="btn btn-primary mb-3" href="http://localhost:3000/restaurants/new">
+      <i class="fas fa-plus">新增</i>
+    </a>
+
+        <div class="card-columns">
         {{#if restaurants}}
           {{#each restaurants}}
             <div class="card mb-3 text-secondary">
@@ -43,7 +49,8 @@
               </div>
                 <a href="/restaurants/{{this._id}}/edits">edit</a>
                 <a href="/restaurants/{{this._id}}">detail</a>
-                <form action="./restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
+
+                <form action="/restaurants/{{ this._id }}/delete" method="POST" style="display: inline;">
                   <button type="submit">delete</button>
                 </form>
                 
@@ -60,9 +67,6 @@
         </div>
       </div>
     </div>
-      <a class="btn btn-primary" href="http://localhost:3000/restaurants/new">
-      <i class="fas fa-plus">新增</i>
-      </a>
   </div>
 
 

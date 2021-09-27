@@ -70,16 +70,18 @@ app.post ('/restaurants/:id/edits' , (req,res) => {
   const address = req.body.address
   const phone = req.body.phoneNumber
   const description = req.body.description
-  return storeList.findById (id)
-             .then ( (store) => {
-              store.name = name
-              store.location = address
-              store.phone = phone
-              store. description = description
-              return store.save()
-             })
-             . then (()=> {res.redirect('/')})
-             .catch (error => console.log (error))
+  return storeList.findByIdAndUpdate(id, {$set:req.body})
+            .then (() => {res.redirect(`/restaurants/${id}`)})
+            .catch (error => console.log (error))
+})
+
+app.post ('/restaurants/:id/delete', (req,res) => {
+
+  const id = req.params.id
+  return storeList.findById(id)
+    .then (store => store.remove())
+    .then (() => res.redirect('/'))
+    .catch(error=>console.log (error))
 })
 
 app.get ('/search', (req,res) => {

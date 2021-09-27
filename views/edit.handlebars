@@ -6,19 +6,53 @@
   
   <div class="form-group">
     <label for="editName">餐廳名稱</label>
-    <input type="text" class="form-control" id="editName" name= "name" value= {{restaurant.name}} aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="editName" name= "name" value= {{restaurant.name}} aria-describedby="emailHelp" required>
   </div>
 
 
   <div class="form-group">
     <label for="editAddress">餐廳地址</label>
-    <input type="text" class="form-control" id="editAddress" name="address" value={{restaurant.location}}>
+    <input type="text" class="form-control" id="editAddress" name="address" value={{restaurant.location}} required>
   </div>
 
   <div class="form-group">
-    <label for="editPhone">餐廳電話</label>
-    <input type="text" class="form-control" id="editPhone" name="phoneNumber" value= {{restaurant.phone}}>
+    <label for="image">圖片網址</label>
+    <input type="url" class="form-control" id="image" name="image" placeholder="輸入圖片網址 https://.*" pattern="https://.*"
+      value = {{restaurant.image}} required>
   </div>
+
+  <div class="form-group">
+    <label for="category">餐廳分類</label>
+    <select class="custom-select" id="category" name="category" required>
+      <option selected>Choose...</option>
+      <option value="中東料理">中東料理</option>
+      <option value="日本料理">日本料理</option>
+      <option value="義式餐廳">義式餐廳</option>
+      <option value="美式">美式</option>
+      <option value="酒吧">酒吧</option>
+      <option value="咖啡">咖啡</option>
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="editPhone">餐廳電話</label>
+    <input type="text" class="form-control" id="editPhone" name="phoneNumber" value= {{restaurant.phone}} required>
+  </div>
+
+      <div class="form-group">
+        <label for="googleMap">Google Map 網址</label>
+        <input type="url" class="form-control" id="googleMap" name="googleMap" placeholder="https://example.com"
+          pattern="https://.*" size="30" value= {{restaurant.google_map}} >
+      </div>
+
+      <div class="form-group">
+        <label for="rate">餐廳評分</label>
+        <input type="number" id="rate" name="rating" class="form-control" placeholder="3.0" step="0.1" min="0" max="5"
+         value = {{restaurant.rating}} required>
+      </div>
+
+
 
   <div class="form-group">
   <label for="description">餐廳描述</label>
@@ -27,10 +61,12 @@
   </textarea>
   </div>
 
+  <button type="submit" class="btn btn-primary">Submit</button>
+
 </div>
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  
 </form>
 
 </div>
