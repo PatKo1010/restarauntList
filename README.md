@@ -1,6 +1,6 @@
-#Restaurant List
+# Restaurant List
 
-##function 
+## function 
 建立專屬於你的餐廳地圖，吃飯選擇沒煩惱
 
 ##User Stroy 
@@ -11,12 +11,12 @@
 使用者可以刪除一家餐廳
 
 
-##環境建置與需求
+## 環境建置與需求
 1. 使用express 4.17.1
 2. 使用 express-handlebars 5.33
 3. 使用 mongoose 資料庫
 
-#安裝
+## 安裝
 1. 下載專案
 ```
 https://github.com/PatKo1010/restarauntList.git
