@@ -66,10 +66,7 @@ app.get('/restaurants/:id/edits', (req,res) => {
 
 app.post ('/restaurants/:id/edits' , (req,res) => {
   const id = req.params.id
-  const name = req.body.name
-  const address = req.body.address
-  const phone = req.body.phoneNumber
-  const description = req.body.description
+  console.log (req.body)
   return storeList.findByIdAndUpdate(id, {$set:req.body})
             .then (() => {res.redirect(`/restaurants/${id}`)})
             .catch (error => console.log (error))
@@ -86,11 +83,18 @@ app.post ('/restaurants/:id/delete', (req,res) => {
 
 app.get ('/search', (req,res) => {
   const keyword = req.query.keyword
-  const searchedRestaurants = restaurants.results.filter ((element) => {
-    return element.name.toLowerCase().replace(/\s*/g, "").includes(req.query.keyword.toLowerCase().replace(/\s*/g, "")) ||element.category.toLowerCase().includes (req.query.keyword.toLowerCase())
+  storeList.find({
+    $or: [
+      { name: { $regex: keyword, $options: 'i' } },
+      { category: { $regex: keyword, $options: 'i' } },
+      { location: { $regex: keyword, $options: 'i' } }
+    ]
   })
-  res.render ('index', {restaurants: searchedRestaurants, keyword: keyword})
+    .lean()
+    .then(restaurants => res.render('index', { restaurants, keyword }))
+    .catch(error => console.log(error))
 })
+
 
 
 app.listen (port, () => {

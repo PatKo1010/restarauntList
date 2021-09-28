@@ -1,34 +1,37 @@
-# RestarauntList
-建立一個可以收藏、查詢喜愛餐廳的網路應用程式
+#Restaurant List
 
-## 程式功能：
-1. 可以在首頁看到所有收藏的餐廳
-2. 點選個別餐廳可以觀看更詳細的餐廳內容
-3. 可以在搜尋欄輸入餐廳名稱查找收藏的餐廳
-4. 可以在搜尋欄輸入餐廳類別查找相關類別的餐廳
+##function 
+建立專屬於你的餐廳地圖，吃飯選擇沒煩惱
 
-## 安裝與執行步驟
+##User Stroy 
+使用者可以新增一家餐廳
+使用者可以瀏覽一家餐廳的詳細資訊
+使用者可以瀏覽全部所有餐廳
+使用者可以修改一家餐廳的資訊
+使用者可以刪除一家餐廳
 
-1. 打開電腦終端機輸入下面指令，將此專案clone至本機
+
+##環境建置與需求
+1. 使用express 4.17.1
+2. 使用 express-handlebars 5.33
+3. 使用 mongoose 資料庫
+
+#安裝
+1. 下載專案
 ```
-git clone https://github.com/PatKo1010/restarauntList.git
+https://github.com/PatKo1010/restarauntList.git
+
 ```
-2. 進入該專案資料夾
+2. 安裝種子資料
+
 ```
-cd restaurant_list
+npm run seed 
 ```
-3.安裝相關套件
+3. 執行程式
 ```
-npm install
-```
-4. 執行程式
-```
-npm run dev 
+npm run start
+npm run dev
 ```
 
-## 環境建置需求
-1. Visual Studio Code - development environment
-2. Node.js & npm - JavaScript runtime environment
-3. Express.js - web application framework
-4. Express-Handlebars - template engine
-
+4. 伺服器位置
+localhost:3000

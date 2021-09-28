@@ -1,10 +1,9 @@
 const mongoose = require('mongoose')
-
-const db = mongoose.connection
 const restaurants = require('/Users/kohsi-yang/ac_exercising/restaurant_list/restaurant.json')
+const storeList = require('/Users/kohsi-yang/ac_exercising/restaurant_list/models/restaurant.js')
 
 mongoose.connect('mongodb://localhost/restaurant-list')
-
+const db = mongoose.connection
 db.on ('error', () => {
   console.log ('mongodb error')
 })
