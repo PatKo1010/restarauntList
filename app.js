@@ -28,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', (req, res) => {
   storeList.find()
            .lean()
+           .sort ({_id:'desc'})
            .then ((store) => {
              res.render('index', {restaurants:store})
            })
@@ -66,7 +67,6 @@ app.get('/restaurants/:id/edits', (req,res) => {
 
 app.post ('/restaurants/:id/edits' , (req,res) => {
   const id = req.params.id
-  console.log (req.body)
   return storeList.findByIdAndUpdate(id, {$set:req.body})
             .then (() => {res.redirect(`/restaurants/${id}`)})
             .catch (error => console.log (error))

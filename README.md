@@ -19,7 +19,7 @@
 ## 安裝
 1. 下載專案
 ```
-https://github.com/PatKo1010/restarauntList.git
+git clone https://github.com/PatKo1010/restarauntList.git
 
 ```
 2. 安裝種子資料
