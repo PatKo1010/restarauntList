@@ -4,7 +4,7 @@ const bodyParser = require ('body-Parser')
 const port = 3000
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
-const storeList = require('/Users/kohsi-yang/ac_exercising/restaurant_list/models/restaurant.js')
+const storeList = require('./models/restaurant.js')
 
 mongoose.connect('mongodb://localhost/restaurant-list')
 const db = mongoose.connection 

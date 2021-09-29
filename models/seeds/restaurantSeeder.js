@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const restaurants = require('/Users/kohsi-yang/ac_exercising/restaurant_list/restaurant.json')
-const storeList = require('/Users/kohsi-yang/ac_exercising/restaurant_list/models/restaurant.js')
+const restaurants = require('./restaurant.json')
+const storeList = require('../restaurant.js')
 
 mongoose.connect('mongodb://localhost/restaurant-list')
 const db = mongoose.connection
