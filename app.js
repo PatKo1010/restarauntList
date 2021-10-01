@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const storeList = require('./models/restaurant.js')
 const routes = require ('./routes')
+const methodOverride = require ('method-override')
+
 
 mongoose.connect('mongodb://localhost/restaurant-list')
 const db = mongoose.connection 
@@ -23,6 +25,7 @@ app.set('view engine', 'handlebars')
 
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use (methodOverride('_method'))
 
 app.use(routes)
 

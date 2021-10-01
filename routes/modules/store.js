@@ -12,6 +12,21 @@ router.post('/new', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get("/search", (req, res) => {
+  const keyword = req.query.keyword
+  storeList.find({
+    $or: [
+      { name: { $regex: keyword, $options: 'i' } },
+      { category: { $regex: keyword, $options: 'i' } },
+      { location: { $regex: keyword, $options: 'i' } }
+    ]
+  })
+    .lean()
+    .then(restaurants => res.render('index', { restaurants, keyword }))
+    .catch(error => console.log(error))
+
+})
+
 router.get('/:id', (req, res) => {
   const id = req.params.id
   storeList.findById(id)
@@ -32,15 +47,15 @@ router.get('/:id/edits', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.post('/:id/edits', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   return storeList.findByIdAndUpdate(id, { $set: req.body })
     .then(() => { res.redirect(`/restaurants/${id}`) })
     .catch(error => console.log(error))
 })
 
-router.post('/:id/delete', (req, res) => {
-
+router.delete ('/:id', (req, res) => {
+  
   const id = req.params.id
   return storeList.findById(id)
     .then(store => store.remove())
@@ -48,20 +63,7 @@ router.post('/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.get("/search", (req, res) => {
-  const keyword = req.query.keyword
-  storeList.find({
-    $or: [
-      { name: { $regex: keyword, $options: 'i' } },
-      { category: { $regex: keyword, $options: 'i' } },
-      { location: { $regex: keyword, $options: 'i' } }
-    ]
-  })
-    .lean()
-    .then(restaurants => res.render('index', { restaurants, keyword }))
-    .catch(error => console.log(error))
 
-})
 
 
 
