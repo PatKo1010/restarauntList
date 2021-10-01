@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete ('/:id', (req, res) => {
-  
+
   const id = req.params.id
   return storeList.findById(id)
     .then(store => store.remove())
